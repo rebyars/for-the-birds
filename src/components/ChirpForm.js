@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+import { connect } from 'react-redux';
 
-export default class ChirpForm extends React.Component{
+class ChirpForm extends React.Component{
     constructor(props) {
         super(props);
 
@@ -9,7 +10,8 @@ export default class ChirpForm extends React.Component{
             subject: props.chirp ? props.chirp.subject : '',
             content: props.chirp ? props.chirp.content : '',
             createdAt : props.chirp ? moment(props.chirp.createdAt) : moment(),
-            errorMessage: undefined
+            errorMessage: undefined,
+            uid: props.chirp ? props.chirp.uid : props.uid
         };
     };
 
@@ -33,7 +35,8 @@ export default class ChirpForm extends React.Component{
             this.props.onSubmit({
                 subject: this.state.subject,
                 content: this.state.content,
-                createdAt: this.state.createdAt.valueOf()
+                createdAt: this.state.createdAt.valueOf(),
+                uid: this.state.uid
             });
         }
     };
@@ -60,3 +63,9 @@ export default class ChirpForm extends React.Component{
         </div>
     )}
 }
+
+const mapStateToProps = (state) => ({
+    uid: state.auth.uid
+});
+
+export default connect(mapStateToProps)(ChirpForm);

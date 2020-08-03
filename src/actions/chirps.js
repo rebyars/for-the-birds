@@ -10,9 +10,10 @@ export const startAddChirp = (chirpData = {}) => {
         const {
             subject= '',
             content= '',
-            createdAt= 0
+            createdAt= 0,
+            uid
         } = chirpData;
-        const chirp = { subject, content, createdAt };
+        const chirp = { subject, content, createdAt, uid };
         database.ref('chirps').push(chirp).then((ref) => {
             dispatch(addChirp({
                 id: ref.key,
