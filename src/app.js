@@ -16,5 +16,5 @@ const jsx = (
 );
 
 store.dispatch(startSetChirps()).then(() => {
-    ReactDOM.render(<AppRouter />, document.getElementById('app'));
+    ReactDOM.render(jsx, document.getElementById('app'));
 });

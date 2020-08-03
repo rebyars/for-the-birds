@@ -5,6 +5,7 @@ const Header = () => (
     <header>
         <h1>For The Birds</h1>
         <Link to="/" exact={"true"}>Dashboard</Link>
+        <Link to='/addChirp'>Add Chirp</Link>
     </header>
 );
 

@@ -14,7 +14,7 @@ export default (state=chirpsDefaultState, action) => {
                 if(chirp.id === action.id){
                     return {
                         ...chirp,
-                        ...updates
+                        ...action.updates
                     }
                 }else{
                     return{
@@ -22,6 +22,8 @@ export default (state=chirpsDefaultState, action) => {
                     };
                 };
             });
+        case 'SET_CHIRPS':
+            return [...action.chirps]
         default:
             return state;
     };
