@@ -5,19 +5,27 @@ import { startEditChirp, startRemoveChirp } from '../actions/chirps';
 
 const EditChirpPage = (props) => (
     <div>
-        <ChirpForm 
-            chirp={props.chirp}
-            onSubmit={(chirp) => {
-                props.startEditChirp(props.chirp.id, chirp);
-                props.history.push('/');
-            }}
-        />
-        <button 
-            onClick={() => {
-                props.startRemoveChirp({id: props.chirp.id});
-                props.history.push('/');
-            }}
-        > Unchirp </button>
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Edit Chirp</h1>
+            </div>
+        </div>
+        <div className="content-container">
+            <ChirpForm 
+                chirp={props.chirp}
+                onSubmit={(chirp) => {
+                    props.startEditChirp(props.chirp.id, chirp);
+                    props.history.push('/');
+                }}
+            />
+            <button 
+                className="button button--secondary"
+                onClick={() => {
+                    props.startRemoveChirp({id: props.chirp.id});
+                    props.history.push('/');
+                }}
+            > Unchirp </button>
+        </div>
     </div>
 );
 

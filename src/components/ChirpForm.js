@@ -42,25 +42,27 @@ class ChirpForm extends React.Component{
     };
 
     render() {
-        return (
-        <div>
-            {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
-            <form onSubmit={this.onSubmit}>
+        return (            
+            <form className="form" onSubmit={this.onSubmit}>
+            {this.state.errorMessage && <p className="form__error">{this.state.errorMessage}</p>}
                 <input 
                     type="text"
                     placeholder="Subject"
                     autoFocus
+                    className={"text-input"}
                     value={this.state.subject}
                     onChange={this.onSubjectChange}
                 />
                 <textarea 
                     placeholder={"Chirp whatever your heart desires."}
+                    className={"textarea"}
                     value={this.state.content}
                     onChange={this.onContentChange}
                 ></textarea>
-                <button>Chirp It</button>
+                <div>
+                    <button className="button">Chirp It</button>
+                </div>
             </form>
-        </div>
     )}
 }
 

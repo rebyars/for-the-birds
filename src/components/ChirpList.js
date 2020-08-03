@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import ChirpListItem from './ChirpListItem';
 
 const ChirpList = ({chirps}) => (
-    <div>
-        {chirps.map((chirp) => (
+    <div className="content-container">
+        {chirps.length === 0 ? (
+            <p>No Chirps Found.</p>
+        ) : (   
+            chirps.map((chirp) => (
             <ChirpListItem chirp={chirp} key={chirp.id} />
-        ))}
+        )))}
      </div>
 );
 

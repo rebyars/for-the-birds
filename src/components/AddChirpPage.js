@@ -5,12 +5,19 @@ import { startAddChirp } from '../actions/chirps';
 
 const AddChirpPage = (props) => (
     <div>
-        <ChirpForm
-            onSubmit={(chirp) => {
-                props.startAddChirp(chirp);
-                props.history.push('/');
-            }}
-        />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Add Chirp</h1>
+            </div>
+        </div>
+        <div className="content-container">
+            <ChirpForm
+                onSubmit={(chirp) => {
+                    props.startAddChirp(chirp);
+                    props.history.push('/');
+                }}
+            />
+        </div>
     </div>
 );
 
